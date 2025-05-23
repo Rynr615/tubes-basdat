@@ -1,5 +1,5 @@
 <?php
-include_once '../function/func.php';
+include_once '../function/func_produk.php';
 $produkList = showDataProduk();
 ?>
 

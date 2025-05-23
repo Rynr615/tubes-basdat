@@ -49,7 +49,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a href="./product.php" id="daftarProduk" class="dropdown-item">Produk</a></li>
-                        <li><a id="daftarSupplier" class="dropdown-item" href="#">Supplier</a></li>
+                        <li><a href ="./supplier.php" id="daftarSupplier" class="dropdown-item" href="#">Supplier</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

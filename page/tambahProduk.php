@@ -1,5 +1,5 @@
 <?php
-include_once '../function/func.php';
+include_once '../function/func_produk.php';
 $produkList = showDataProduk();
 ?>
 
@@ -12,7 +12,7 @@ $produkList = showDataProduk();
     <div class="d-flex flex-row justify-content-between mt-5">
         <h2>Tambah Produk</h2>
     </div>
-    <form action="../function/func.php" method="POST">
+    <form action="../function/func_produk.php" method="POST">
         <input type="hidden" name="action" value="insert">
 
         <div class="mb-3">

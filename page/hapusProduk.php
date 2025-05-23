@@ -1,6 +1,6 @@
 <?php
 require_once '../db/config.php';
-require_once '../function/func.php';
+require_once '../function/func_produk.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action']) && $_GET['action'] === 'delete') {
     $kodeProduk = $_GET['KodeProduk'] ?? null;

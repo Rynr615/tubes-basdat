@@ -24,20 +24,22 @@ function insertDataProduk($conn, $kodeProduk, $nama, $jenis, $harga, $fungsi, $s
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['action'] == 'insert') {
-    $kodeProduk = $_POST['kodeProduk'];
-    $nama = $_POST['namaProduk'];
-    $jenis = $_POST['jenis'];
-    $harga = $_POST['harga'];
-    $fungsi = $_POST['fungsi'];
-    $stok = $_POST['stok'];
-    $expired = $_POST['expired'];
-    $kodeSupplier = $_POST['kodeSupplier'];
-
-    if(insertDataProduk($conn, $kodeProduk, $nama, $jenis, $harga, $fungsi, $stok, $expired, $kodeSupplier)) {
-        header("Location: ../page/product.php");
-        exit;
-    } else {
-        echo "Data gagal ditambahkan";
+    if(isset($_POST['kodeProduk'])) {
+        $kodeProduk = $_POST['kodeProduk'];
+        $nama = $_POST['namaProduk'];
+        $jenis = $_POST['jenis'];
+        $harga = $_POST['harga'];
+        $fungsi = $_POST['fungsi'];
+        $stok = $_POST['stok'];
+        $expired = $_POST['expired'];
+        $kodeSupplier = $_POST['kodeSupplier'];
+    
+        if(insertDataProduk($conn, $kodeProduk, $nama, $jenis, $harga, $fungsi, $stok, $expired, $kodeSupplier)) {
+            header("Location: ../page/product.php");
+            exit;
+        } else {
+            echo "Data gagal ditambahkan";
+        }
     }
 }
 
@@ -94,4 +96,7 @@ function showDataUser() {
 
     return $data;
 }
+
+
+
 ?>

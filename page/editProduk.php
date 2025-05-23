@@ -1,6 +1,6 @@
 <?php include "../layouts/header.php"; ?>
 <?php include "../layouts/navbar.php"; ?>
-<?php include "../function/func.php";
+<?php include "../function/func_produk.php";
 
 ?>
 
@@ -27,7 +27,7 @@ if(!$produk) {
 
 
 <div class="container mt-2 p-5 w-50">
-    <form action="../function/func.php" method="POST">
+    <form action="../function/func_produk.php" method="POST">
         <input type="hidden" name="action" value="edit">
         <input type="hidden" name="kodeProduk" value="<?= $produk['KodeProduk']; ?>">
 
