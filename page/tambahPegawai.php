@@ -1,5 +1,35 @@
 <?php
 include_once '../function/func_pegawai.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $action = $_POST['action'];
+
+    if ($action == 'tambahPegawai') {
+        $idPegawai = generateIdPegawai($conn);
+        $nama = $_POST['nama'];
+        $tglLahir = $_POST['tglLahir'];
+        $usia = $_POST['usia'];
+        $noHp = $_POST['noHp'];
+        $idBagian = $_POST['IDbagian'];
+        $alamat = $_POST['alamat'];
+        $jenisKelamin = $_POST['jenisKelamin'];
+
+        if (insertPegawai($conn, $idPegawai, $nama, $tglLahir, $usia, $noHp, $idBagian, $alamat, $jenisKelamin)) {
+            echo "<script>alert('Pegawai berhasil ditambahkan!'); window.location.href = './pegawai.php';</script>";
+        } else {
+            echo "<script>alert('Gagal menambahkan pegawai!');</script>";
+        }
+    } elseif ($action == 'tambahBagian') {
+        $bagian = $_POST['bagian'];
+        $id = generateBagianID($conn);
+
+        if (insertBagian($conn, $id, $bagian)) {
+            echo "<script>alert('Bagian berhasil ditambahkan!'); window.location.href = './pegawai.php';</script>";
+        } else {
+            echo "<script>alert('Gagal menambahkan bagian!');</script>";
+        }
+    }
+}
 ?>
 
 <?php require_once("../db/config.php"); ?>
@@ -44,8 +74,8 @@ include_once '../function/func_pegawai.php';
 
             <label>Jenis Kelamin:</label>
             <select class="form-control" name="jenisKelamin" required>
-                <option value="L">Laki-laki</option>
-                <option value="P">Perempuan</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Simpan Pegawai</button>

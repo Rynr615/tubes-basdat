@@ -70,35 +70,31 @@ function insertBagian($conn, $id, $bagian) {
     return mysqli_query($conn, $query);
 }
 
+function getPegawaiById($conn, $id) {
+    $result = mysqli_query($conn, "SELECT * FROM pegawai WHERE idPegawai = '$id'");
+    return mysqli_fetch_assoc($result);
+}
 
+function updatePegawai($conn, $id, $nama, $tglLahir, $usia, $noHp, $idBagian, $alamat, $jenisKelamin) {
+    $sql = "UPDATE pegawai SET 
+            nama = '$nama',
+            tglLahir = '$tglLahir',
+            usia = '$usia',
+            noHp = '$noHp',
+            IDbagian = '$idBagian',
+            alamat = '$alamat',
+            jenisKelamin = '$jenisKelamin'
+            WHERE idPegawai = '$id'";
+    return mysqli_query($conn, $sql);
+}
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $action = $_POST['action'];
+function getBagianById($conn, $id) {
+    $result = mysqli_query($conn, "SELECT * FROM bagiandetail WHERE ID = '$id'");
+    return mysqli_fetch_assoc($result);
+}
 
-    if ($action == 'tambahPegawai') {
-        $idPegawai = generateIdPegawai($conn);
-        $nama = $_POST['nama'];
-        $tglLahir = $_POST['tglLahir'];
-        $usia = $_POST['usia'];
-        $noHp = $_POST['noHp'];
-        $idBagian = $_POST['IDbagian'];
-        $alamat = $_POST['alamat'];
-        $jenisKelamin = $_POST['jenisKelamin'];
-
-        if (insertPegawai($conn, $idPegawai, $nama, $tglLahir, $usia, $noHp, $idBagian, $alamat, $jenisKelamin)) {
-            echo "<script>alert('Pegawai berhasil ditambahkan!'); window.location.href = './pegawai.php';</script>";
-        } else {
-            echo "<script>alert('Gagal menambahkan pegawai!');</script>";
-        }
-    } elseif ($action == 'tambahBagian') {
-        $bagian = $_POST['bagian'];
-        $id = generateBagianID($conn);
-
-        if (insertBagian($conn, $id, $bagian)) {
-            echo "<script>alert('Bagian berhasil ditambahkan!'); window.location.href = './pegawai.php';</script>";
-        } else {
-            echo "<script>alert('Gagal menambahkan bagian!');</script>";
-        }
-    }
+function updateBagian($conn, $id, $namaBagian) {
+    $sql = "UPDATE bagiandetail SET bagian = '$namaBagian' WHERE ID = '$id'";
+    return mysqli_query($conn, $sql);
 }
 ?>
