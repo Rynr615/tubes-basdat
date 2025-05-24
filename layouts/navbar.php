@@ -17,12 +17,12 @@
                     <a class="nav-link" href="#">Dokter</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Pegawai
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a id="daftarPegawai" class="dropdown-item" href="#">Daftar Pegawai</a></li>
+                        <li><a id="daftarPegawai" class="dropdown-item" href="../page/pegawai.php">Daftar Pegawai</a></li>
                         <li><a id="daftarUser" class="dropdown-item" href="#">Daftar User</a></li>
                     </ul>
                 </li>
