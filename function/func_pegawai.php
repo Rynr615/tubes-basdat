@@ -97,4 +97,20 @@ function updateBagian($conn, $id, $namaBagian) {
     $sql = "UPDATE bagiandetail SET bagian = '$namaBagian' WHERE ID = '$id'";
     return mysqli_query($conn, $sql);
 }
+
+function hapusPegawai($conn, $id) {
+    $sql = "DELETE FROM pegawai WHERE idPegawai = '$id'";
+    return mysqli_query($conn, $sql);
+}
+
+function hapusBagian($conn, $id) {
+    $check = mysqli_query($conn, "SELECT * FROM pegawai WHERE IDbagian = '$id'");
+    if (mysqli_num_rows($check) > 0) {
+        return false;
+    }
+
+    $sql = "DELETE FROM bagiandetail WHERE ID = '$id'";
+    return mysqli_query($conn, $sql);
+}
+
 ?>

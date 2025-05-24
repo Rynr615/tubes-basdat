@@ -30,7 +30,7 @@ $detailsBagian = showDetailPegawai();
                         <td><?= htmlspecialchars($detail['bagian']) ?></td>
                         <td>
                             <a href="./editBagian.php?ID=<?= $detail['ID'] ?>" class="btn btn-warning">Edit</a>
-                            <a href="./hapusBagian.php?action=delete&ID=<?= $detail['ID'] ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-danger">Hapus</a>
+                            <a href="hapusDetail.php?ID=<?= $detail['ID'] ?>" class="btn btn-danger" onclick="return confirm('Yakin mau hapus bagian ini?')">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -77,7 +77,7 @@ $detailsBagian = showDetailPegawai();
                         <td><?= htmlspecialchars($pegawai['jenisKelamin']) ?></td>
                         <td>
                             <a href="./editPegawai.php?idPegawai=<?= $pegawai['idPegawai'] ?>" class="btn btn-warning">Edit</a>
-                            <a href="./hapusPegawai.php?action=delete&idPegawai=<?= $pegawai['idPegawai'] ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-danger">Hapus</a>
+                            <a href="./hapusPegawai.php?idPegawai=<?= $pegawai['idPegawai'] ?>" class="btn btn-danger" onclick="return confirm('Yakin mau hapus pegawai ini?')">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
