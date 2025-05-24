@@ -36,7 +36,7 @@ $detailsBagian = showDetailPegawai();
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="9">Tidak ada data pegawai</td>
+                    <td colspan="9">Tidak ada data</td>
                 </tr>
             <?php endif; ?>
         </tbody>

@@ -39,7 +39,7 @@ $suppliers = showDataSupplier();
             <?php endforeach; ?>
             <?php else: ?>
             <tr>
-                <td colspan="9">Tidak ada data produk</td>
+                <td colspan="9">Tidak ada data</td>
             </tr>
             <?php endif; ?>
         </tbody>

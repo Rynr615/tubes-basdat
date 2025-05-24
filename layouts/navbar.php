@@ -32,8 +32,8 @@
                         Pembelian
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a id="daftarPembelianOffline" class="dropdown-item" href="#">Pembelian Offline</a></li>
-                        <li><a id="daftarPembelianOnline" class="dropdown-item" href="#">Pembellian Online</a></li>
+                        <li><a id="daftarPembelianOffline" class="dropdown-item" href="../page/pembelianOffline.php">Pembelian Offline</a></li>
+                        <li><a id="daftarPembelianOnline" class="dropdown-item" href="../page/pembelianOnline.php">Pembellian Online</a></li>
                         <li><a id="daftarDelivery" class="dropdown-item" href="#">Delivery</a></li>
                         <li>
                             <hr class="dropdown-divider">
