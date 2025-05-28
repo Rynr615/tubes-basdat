@@ -38,8 +38,8 @@ $users = showDataUser();
                 <td><?= htmlspecialchars($user['Alamat']) ?></td>
                 <td><?= htmlspecialchars($user['NoHP']) ?></td>
                 <td>
-                    <button type="button" class="btn btn-warning">Edit</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <a href="editUser.php?ID_User=<?= $user['ID_User'] ?>" type="button" class="btn btn-warning">Edit</a>
+                    <a href="hapusUser.php?ID_User=<?= $user['ID_User'] ?>" type="button" class="btn btn-danger" onclick="return confirm('Yakin mau hapus pegawai ini?')">Hapus</a>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -25,4 +25,16 @@ function insertUser($conn, $idUser, $email, $username, $password, $jenisKelamin,
     return mysqli_query($conn, $query);
 }
 
+function updateUser($conn, $idUser, $email, $username, $password, $jenisKelamin, $alamat, $noHp) {
+    global $conn;
+
+    $query = "UPDATE `user` SET `Email`='$email',`Username`='$username',`Password`='$password',`JenisKelamin`='$jenisKelamin',`Alamat`='$alamat',`NoHP`='$noHp' WHERE ID_User = '$idUser'";
+    return mysqli_query($conn, $query);
+}
+
+function hapusUser($conn, $idUser) {
+    $query = "DELETE FROM `user` WHERE ID_User = '$idUser'";
+    return mysqli_query($conn, $query);
+}
+
 ?>
