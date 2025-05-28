@@ -16,4 +16,11 @@ function showData() {
     return $data;
 }
 
+function insertDokter($conn, $nip, $nama, $jenisKelamin, $spesialis, $noHp, $alamat) {
+    global $conn;
+
+    $query = "INSERT INTO dokter(NIP, Nama, JenisKelamin, Spesialis, NoHp, alamat) VALUES ('$nip', '$nama', '$jenisKelamin', '$spesialis', '$noHp', '$alamat')";
+    return mysqli_query($conn, $query);
+}
+
 ?>
