@@ -23,4 +23,21 @@ function insertDokter($conn, $nip, $nama, $jenisKelamin, $spesialis, $noHp, $ala
     return mysqli_query($conn, $query);
 }
 
+function updateDokter($conn, $nipLama, $nipBaru, $nama, $jenisKelamin, $spesialis, $noHp, $alamat) {
+    $query = "UPDATE dokter SET 
+        NIP = '$nipBaru',
+        Nama = '$nama',
+        JenisKelamin = '$jenisKelamin',
+        Spesialis = '$spesialis',
+        NoHp = '$noHp',
+        Alamat = '$alamat' 
+        WHERE NIP = '$nipLama'";
+    return mysqli_query($conn, $query);
+}
+
+function hapusDokter($conn, $nip) {
+    $sql = "DELETE FROM dokter WHERE NIP = '$nip'";
+    return mysqli_query($conn, $sql);
+}
+
 ?>
