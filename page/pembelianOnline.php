@@ -10,7 +10,7 @@ $onlineBuys = showDataPembelianOnline();
 
 <div class="container">
     <div class="d-flex flex-row justify-content-between mt-5">
-        <h2>Daftar Pegawai</h2>
+        <h2>Daftar Pembelian Online</h2>
         <a href="tambahPembelianOffline.php" class="btn btn-primary p-2">Tambah Data</a>
     </div>
     <table class="table table-striped table-hover mt-1">
@@ -43,7 +43,7 @@ $onlineBuys = showDataPembelianOnline();
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="9">Tidak ada data pegawai</td>
+                    <td colspan="9">Tidak ada data</td>
                 </tr>
             <?php endif; ?>
         </tbody>
