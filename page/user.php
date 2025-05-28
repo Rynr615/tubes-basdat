@@ -1,19 +1,28 @@
 <?php
-include_once './function/func.php';
+require_once '../db/config.php';
+include_once '../function/func_user.php';
+
 $users = showDataUser();
 ?>
 
+<?php include '../layouts/header.php'; ?>
+<?php include '../layouts/navbar.php'; ?>
+
 <div class="container mt-5">
-    <table class="table table-striped table-hover">
+    <div class="d-flex flex-row justify-content-between mt-5">
+        <h2>Daftar User</h2>
+        <a href="tambahPembelianOffline.php" class="btn btn-primary p-2">Tambah Data</a>
+    </div>
+    <table class="table table-striped table-hover mt-2">
         <thead>
             <tr class="table-secondary">
+                <th scope="col">No</th>
                 <th scope="col">Id User</th>
                 <th scope="col">Email</th>
                 <th scope="col">Username</th>
                 <th scope="col">JenisKelamin</th>
-                <th scope="col">Fungsi</th>
-                <th scope="col">Stok</th>
-                <th scope="col">Expired</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">No. Hp</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -27,7 +36,7 @@ $users = showDataUser();
                 <td><?= htmlspecialchars($user['Username']) ?></td>
                 <td><?= htmlspecialchars($user['JenisKelamin']) ?></td>
                 <td><?= htmlspecialchars($user['Alamat']) ?></td>
-                <td><?= htmlspecialchars($user['noHP']) ?></td>
+                <td><?= htmlspecialchars($user['NoHP']) ?></td>
                 <td>
                     <button type="button" class="btn btn-warning">Edit</button>
                     <button type="button" class="btn btn-danger">Hapus</button>
@@ -42,3 +51,5 @@ $users = showDataUser();
         </tbody>
     </table>
 </div>
+
+<?php include '../layouts/footer.php'; ?>

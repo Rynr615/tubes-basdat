@@ -23,7 +23,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a id="daftarPegawai" class="dropdown-item" href="../page/pegawai.php">Daftar Pegawai</a></li>
-                        <li><a id="daftarUser" class="dropdown-item" href="#">Daftar User</a></li>
+                        <li><a id="daftarUser" class="dropdown-item" href="./user.php">Daftar User</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

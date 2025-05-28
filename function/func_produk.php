@@ -80,23 +80,4 @@ function delDataProduk($conn, $kodeProduk) {
     $query = "DELETE FROM produk WHERE KodeProduk='$kodeProduk'";
     return mysqli_query($conn, $query);
 }
-
-function showDataUser() {
-    global $conn;
-
-    $sql = "SELECT * FROM user";
-    $result = $conn->query($sql);
-    $data = [];
-
-    if ($result && $result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
-        }
-    }
-
-    return $data;
-}
-
-
-
 ?>
