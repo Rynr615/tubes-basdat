@@ -18,4 +18,11 @@ function showDataUser() {
     return $data;
 }
 
+function insertUser($conn, $idUser, $email, $username, $password, $jenisKelamin, $alamat, $noHp) {
+    global $conn;
+    
+    $query = "INSERT INTO `user`(`ID_User`, `Email`, `Username`, `Password`, `JenisKelamin`, `Alamat`, `NoHP`) VALUES ('$idUser','$email','$username','$password','$jenisKelamin','$alamat','$noHp')";
+    return mysqli_query($conn, $query);
+}
+
 ?>

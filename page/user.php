@@ -11,7 +11,7 @@ $users = showDataUser();
 <div class="container mt-5">
     <div class="d-flex flex-row justify-content-between mt-5">
         <h2>Daftar User</h2>
-        <a href="tambahPembelianOffline.php" class="btn btn-primary p-2">Tambah Data</a>
+        <a href="tambahUser.php" class="btn btn-primary p-2">Tambah Data</a>
     </div>
     <table class="table table-striped table-hover mt-2">
         <thead>
