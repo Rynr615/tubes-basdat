@@ -34,7 +34,6 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a id="daftarPembelianOffline" class="dropdown-item" href="../page/pembelianOffline.php">Pembelian Offline</a></li>
                         <li><a id="daftarPembelianOnline" class="dropdown-item" href="../page/pembelianOnline.php">Pembellian Online</a></li>
-                        <li><a id="daftarDelivery" class="dropdown-item" href="#">Delivery</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -53,7 +52,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a id="fakturSupplier" class="dropdown-item" href="#">Faktur Supplier</a></li>
+                        <li><a id="fakturSupplier" class="dropdown-item" href="./fakturSupplier.php">Faktur Supplier</a></li>
                     </ul>
                 </li>
             </ul>
