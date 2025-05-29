@@ -11,7 +11,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a id="keluhanPasien" class="nav-link" href="#">Keluhan Pasien</a>
+                    <a id="keluhanPasien" class="nav-link" href="./konsultasi.php">Keluhan Pasien</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./dokter.php">Dokter</a>

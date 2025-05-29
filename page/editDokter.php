@@ -5,19 +5,19 @@ include_once '../function/func_dokter.php';
 if (isset($_GET['NIP'])) {
     $nip = $_GET['NIP'];
 
-if(!$nip) {
-    echo "NIP tidak ditemukan";
-    exit;
-}
+    if(!$nip) {
+        echo "NIP tidak ditemukan";
+        exit;
+    }
 
-$query = "SELECT * FROM dokter WHERE NIP = '$nip'";
-$result = mysqli_query($conn, $query);
-$data = mysqli_fetch_assoc($result);
+    $query = "SELECT * FROM dokter WHERE NIP = '$nip'";
+    $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
 
-if(!$data) {
-    echo "Produk tidak ditemukan";
-    exit;
-}
+    if(!$data) {
+        echo "Dokter tidak ditemukan";
+        exit;
+    }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nipLama = $_POST['nipLama'];
