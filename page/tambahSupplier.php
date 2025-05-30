@@ -15,9 +15,6 @@ include_once '../function/func_supplier.php';
         <input type="hidden" name="action" value="insert">
 
         <div class="mb-3">
-            <!-- Kode Supplier -->
-            <label for="kodeSupplier" class="form-label">Kode Supplier</label>
-            <input type="text" class="form-control" name="kodeSupplier" placeholder="Masukkan kode supplier..." required>
 
             <!-- Nama Supplier -->
             <label for="namaSupplier" class="form-label">Nama Supplier</label>

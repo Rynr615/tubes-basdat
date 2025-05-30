@@ -18,25 +18,38 @@ function showDataSupplier() {
     return $data;
 }
 
+function generateKodeSupplier($conn) {
+    $query = "SELECT MAX(KodeSupplier) AS maxKode FROM supplier";
+    $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
+
+    $lastKode = $data['maxKode'] ?? 'SUP0000';
+    $number = (int)substr($lastKode, 3) + 1;
+    $newKode = 'SUP' . str_pad($number, 4, '0', STR_PAD_LEFT);
+
+    return $newKode;
+}
+
+
 // ================= tambah data supplier ======================
-function insertDataSupplier($conn, $kodeSupplier, $nama, $noHP, $alamat) {
+function insertSupplier($conn, $nama, $nohp, $alamat) {
+    $kode = generateKodeSupplier($conn);
     $query = "INSERT INTO supplier (KodeSupplier, Nama, NoHP, Alamat) 
-                VALUES ('$kodeSupplier', '$nama', '$noHP', '$alamat')";
+                VALUES ('$kode', '$nama', '$nohp', '$alamat')";
     return mysqli_query($conn, $query);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'insert') {
-    $kodeSupplier = $_POST['kodeSupplier'];
-    $namaSupplier = $_POST['namaSupplier'];
-    $noHP = $_POST['NoHP'];
+    $nama = $_POST['namaSupplier'];
+    $nohp = $_POST['NoHP'];
     $alamat = $_POST['Alamat'];
 
-    if (insertDataSupplier($conn, $kodeSupplier, $namaSupplier, $noHP, $alamat)) {
-        header("Location: ../page/supplier.php");
-        exit;
+    if (insertSupplier($conn, $nama, $nohp, $alamat)) {
+        echo "<script>alert('Data supplier berhasil ditambahkan!'); window.location.href = '../page/supplier.php';</script>";
     } else {
-        echo "Gagal menambahkan supplier!";
+        echo "<script>alert('Gagal menambahkan supplier!'); window.history.back();</script>";
     }
+    exit;
 }
 
 // ====================== edit data supplier ========================
