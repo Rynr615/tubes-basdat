@@ -1,6 +1,7 @@
 <?php
 include_once '../function/func_produk.php';
 $produkList = showDataProduk();
+$supplierList = showSupplier();
 ?>
 
 <?php require_once("../db/config.php"); ?>
@@ -16,10 +17,6 @@ $produkList = showDataProduk();
         <input type="hidden" name="action" value="insert">
 
         <div class="mb-3">
-            <!-- kodeProduk -->
-            <label for="kodeProduk" class="form-label">Kode Produk</label>
-            <input type="text" class="form-control" name="kodeProduk" placeholder="Masukkan nama produk...">
-
             <!-- namaProduk -->
             <label for="namaProduk" class="form-label">Nama Produk</label>
             <input type="text" class="form-control" name="namaProduk" placeholder="Masukkan nama produk...">
@@ -50,8 +47,15 @@ $produkList = showDataProduk();
             <input type="date" class="form-control" name="expired" placeholder="Masukkan expired...">
 
             <!-- KodeSupplier -->
-            <label for="kodeSupplier" class="form-label">Kode Supplier</label>
-            <input type="text" class="form-control" name="kodeSupplier" placeholder="Masukkan supplier">
+            <label for="kurir">Kode Supplier</label>
+            <select name="kodeSupplier" class="form-control" required>
+                <option value="">-- Pilih Supplier --</option>
+                <?php foreach ($supplierList as $supplier): ?>
+                    <option value="<?= $supplier['KodeSupplier'] ?>">
+                        <?= $supplier['KodeSupplier'] ?> - <?= $supplier['Nama'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
 
         <div class="mb-3">
