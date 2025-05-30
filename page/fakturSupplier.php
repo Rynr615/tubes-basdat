@@ -34,8 +34,6 @@ $fakturList = showFakturSupplier();
                         <td>Rp <?= number_format($faktur['TotalPembayaran'], 0, ',', '.') ?></td>
                         <td>
                             <a href="detailFakturSupplier.php?NoFaktur=<?= $faktur['NoFaktur'] ?>" class="btn btn-info btn-sm">Lihat Detail</a>
-                            <a href="editFakturSupplier.php?NoFaktur=<?= $faktur['NoFaktur'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="hapusFakturSupplier.php?NoFaktur=<?= $faktur['NoFaktur'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus faktur ini?')">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

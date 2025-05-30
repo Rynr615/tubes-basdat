@@ -34,11 +34,6 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a id="daftarPembelianOffline" class="dropdown-item" href="../page/pembelianOffline.php">Pembelian Offline</a></li>
                         <li><a id="daftarPembelianOnline" class="dropdown-item" href="../page/pembelianOnline.php">Pembellian Online</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a id="fakturPmbelianOffline" class="dropdown-item" href="../page/fakturPembelianOffline.php">Faktur Pembelian Offline</a></li>
-                        <li><a id="fakturPembelianOnline" class="dropdown-item" href="">Faktur Pembelian Online</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
