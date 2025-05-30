@@ -81,14 +81,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'insertPembeli
     $jumlahArr = $_POST['jumlahProduk'];
     $totalHarga = 0;
 
-    // Hitung subtotal dan total
     $subTotals = [];
+
     foreach ($kodeProdukArr as $i => $kodeProduk) {
         $jumlah = (int)$jumlahArr[$i];
-        $hargaQuery = mysqli_query($conn, "SELECT Harga FROM produk WHERE KodeProduk = '$kodeProduk'");
-        $harga = mysqli_fetch_assoc($hargaQuery)['Harga'];
+        $produkQuery = mysqli_query($conn, "SELECT Harga, Stok FROM produk WHERE KodeProduk = '$kodeProduk'");
+        $produkData = mysqli_fetch_assoc($produkQuery);
+
+        if (!$produkData) {
+            echo "<script>alert('Produk dengan kode $kodeProduk tidak ditemukan!'); window.history.back();</script>";
+            exit;
+        }
+
+        $harga = $produkData['Harga'];
+        $stokTersedia = $produkData['Stok'];
+
+        if ($jumlah > $stokTersedia) {
+            echo "<script>alert('Stok untuk produk $kodeProduk tidak mencukupi!'); window.history.back();</script>";
+            exit;
+        }
+
         $subTotal = $jumlah * $harga;
         $totalHarga += $subTotal;
+
         $subTotals[] = [
             'kodeProduk' => $kodeProduk,
             'jumlah' => $jumlah,
@@ -96,25 +111,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'insertPembeli
         ];
     }
 
-    // Insert ke pembelianoffline (NoTransaksi auto)
     $insertPembelian = "INSERT INTO pembelianoffline (idPegawai, tglPembelian, jenisPembayaran, totalHarga)
                         VALUES ('$idPegawai', '$tgl', '$jenis', '$totalHarga')";
     mysqli_query($conn, $insertPembelian);
 
-    // Ambil NoTransaksi yang baru saja di-generate
     $noTransaksi = mysqli_insert_id($conn);
 
-    // Insert ke detailpembelianoffline
     foreach ($subTotals as $item) {
         mysqli_query($conn, "INSERT INTO detailpembelianoffline (NoTransaksi, kodeProduk, jumlahProduk, subTotal)
                                 VALUES ('$noTransaksi', '{$item['kodeProduk']}', {$item['jumlah']}, {$item['subTotal']})");
+
+        mysqli_query($conn, "UPDATE produk 
+                                SET Stok = Stok - {$item['jumlah']} 
+                                WHERE KodeProduk = '{$item['kodeProduk']}'");
     }
 
     echo "<script>alert('Transaksi berhasil ditambahkan!'); window.location.href = '../page/pembelianOffline.php';</script>";
     exit;
 }
-
-
-
 
 ?>

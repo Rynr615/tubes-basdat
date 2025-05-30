@@ -49,14 +49,20 @@ function generateIdPegawai($conn) {
 function generateBagianID($conn) {
     $query = "SELECT MAX(ID) as maxID FROM bagiandetail";
     $result = mysqli_query($conn, $query);
+
+    if (!$result) {
+        die("Query gagal: " . mysqli_error($conn)); // Buat debug kalau ada error
+    }
+
     $data = mysqli_fetch_assoc($result);
-    
     $lastID = $data['maxID'] ?? 'BD000';
+
     $number = (int)substr($lastID, 2) + 1;
     $newID = 'BD' . str_pad($number, 3, '0', STR_PAD_LEFT);
     
     return $newID;
 }
+
 
 
 function insertPegawai($conn, $idPegawai, $nama, $tglLahir, $usia, $noHp, $idBagian, $alamat, $jenisKelamin) {

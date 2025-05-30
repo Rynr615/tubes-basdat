@@ -4,6 +4,22 @@ include_once '../function/func_pegawai.php';
 
 <?php require_once("../db/config.php"); ?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'tambahBagian') {
+    $bagian = $_POST['bagian'];
+
+    $id = generateBagianID($conn);
+
+    if (insertBagian($conn, $id, $bagian)) {
+        echo "<script>alert('Bagian berhasil ditambahkan!'); window.location.href = 'pegawai.php';</script>";
+        exit;
+    } else {
+        echo "<script>alert('Gagal menambahkan bagian.');</script>";
+    }
+}
+?>
+
+
 <?php include '../layouts/header.php' ?>
 <?php include '../layouts/navbar.php' ?>
 
